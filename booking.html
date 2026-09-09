@@ -5,10 +5,12 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Book Your Stay | Rayyan's Luxury Stay</title>
+    <meta name="description" content="Reserve your luxury room or executive suite at Rayyan's Luxury Stay. Best price guarantee and instant confirmation.">
+    <meta property="og:title" content="Book Your Stay | Rayyan's Luxury Stay">
+    <meta property="og:description" content="Reserve your luxury room or executive suite at Rayyan's Luxury Stay.">
 
     <!-- Google Font -->
 
@@ -50,70 +52,37 @@ HEADER
     <div class="container">
 
         <div class="logo">
-
-            <h2>Rayyan's Luxury Stay</h2>
-
+            <a href="index.html">
+                <h2>Rayyan's Luxury Stay</h2>
+                <span>Comfort • Elegance • Luxury</span>
+            </a>
         </div>
 
-        <!-- Mobile Button -->
-
-        <button
-            class="menu-toggle"
-            id="menuToggle">
-
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
-
         </button>
 
         <nav id="menu">
 
             <ul>
 
+                <li><a href="index.html" class="nav-link">Home</a></li>
+
+                <li><a href="index.html#rooms" class="nav-link">Rooms</a></li>
+
+                <li><a href="index.html#amenities" class="nav-link">Amenities</a></li>
+
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+
                 <li>
-
-                    <a href="index.html">
-
-                        Home
-
+                    <a class="book-btn" href="booking.html">
+                        Book Now
                     </a>
-
                 </li>
 
                 <li>
 
-                    <a href="index.html#rooms">
-
-                        Rooms
-
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="index.html#amenities">
-
-                        Amenities
-
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="contact.html">
-
-                        Contact
-
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <button
-                        id="darkMode"
-                        class="dark-btn">
+                    <button id="darkMode" class="dark-btn" aria-label="Toggle dark mode">
 
                         <i class="fa-solid fa-moon"></i>
 
@@ -379,31 +348,19 @@ Select Room Type
 
 <option value="Standard Room">
 
-Standard Room
+Standard Room (₹999 / night)
 
 </option>
 
 <option value="Deluxe Room">
 
-Deluxe Room
+Deluxe Room (₹1,999 / night)
 
 </option>
 
 <option value="Executive Suite">
 
-Executive Suite
-
-</option>
-
-<option value="Family Suite">
-
-Family Suite
-
-</option>
-
-<option value="Presidential Suite">
-
-Presidential Suite
+Executive Suite (₹3,499 / night)
 
 </option>
 
@@ -428,9 +385,42 @@ Special Requests
 <textarea
 id="message"
 name="message"
-rows="6"
+rows="4"
 placeholder="Mention any special requirements, airport pickup, extra bed, food preferences, etc."></textarea>
 
+</div>
+
+<!-- ==========================
+BOOKING PRICE BREAKDOWN SUMMARY
+========================== -->
+<div class="booking-summary-box full" id="bookingSummaryBox">
+    <h3><i class="fa-solid fa-receipt"></i> Booking Summary Breakdown</h3>
+    <div class="summary-details">
+        <div class="summary-row">
+            <span>Selected Room:</span>
+            <strong id="sumRoomName">Standard Room</strong>
+        </div>
+        <div class="summary-row">
+            <span>Rate per Night:</span>
+            <strong id="sumRoomRate">₹999</strong>
+        </div>
+        <div class="summary-row">
+            <span>Duration of Stay:</span>
+            <strong id="sumNights">1 Night</strong>
+        </div>
+        <div class="summary-row">
+            <span>Room Charges:</span>
+            <strong id="sumRoomCharges">₹999</strong>
+        </div>
+        <div class="summary-row">
+            <span>Estimated Taxes (9% GST):</span>
+            <strong id="sumTaxes">₹90</strong>
+        </div>
+        <div class="summary-row total-row">
+            <span>Estimated Total Amount:</span>
+            <strong id="sumGrandTotal">₹1,089</strong>
+        </div>
+    </div>
 </div>
 
 <!-- ==========================
@@ -444,7 +434,7 @@ id="submitBtn">
 
 <span>
 
-Book Now
+Submit Booking Request
 
 </span>
 
@@ -466,47 +456,37 @@ class="loader hidden">
 
 </section>
 <!-- ==========================================
-SUCCESS MODAL
+SUCCESS CONFIRMATION MODAL
 ========================================== -->
 
-<div
-class="modal"
-id="successModal">
+<div class="modal" id="successModal">
 
-<div class="modal-content">
+    <div class="modal-content booking-confirmation-content">
 
-<i class="fa-solid fa-circle-check success-icon"></i>
+        <i class="fa-solid fa-circle-check success-icon"></i>
 
-<h2>
+        <h2>Booking Request Submitted!</h2>
 
-Booking Successful!
+        <p class="mb-3">
+            Thank you for choosing <strong>Rayyan's Luxury Stay</strong>. Your reservation details have been recorded.
+        </p>
 
-</h2>
+        <div class="confirmation-details-card mb-4">
+            <div class="conf-row"><span>Booking Reference ID:</span> <strong id="confRefId">RLS-9821</strong></div>
+            <div class="conf-row"><span>Guest Name:</span> <strong id="confGuestName">-</strong></div>
+            <div class="conf-row"><span>Room Type:</span> <strong id="confRoomType">-</strong></div>
+            <div class="conf-row"><span>Check-In / Out:</span> <strong id="confDates">-</strong></div>
+            <div class="conf-row"><span>Duration:</span> <strong id="confNights">-</strong></div>
+            <div class="conf-row conf-total"><span>Estimated Total:</span> <strong id="confTotalAmount">-</strong></div>
+        </div>
 
-<p>
+        <p class="text-muted small mb-4">
+            <i class="fa-solid fa-circle-info"></i> Our reservations desk will review your request and send a detailed confirmation receipt to your email shortly.
+        </p>
 
-Thank you for choosing
-<strong>Rayyan's Luxury Stay</strong>.
+        <button class="btn" onclick="closeSuccess()">Close Confirmation</button>
 
-<br><br>
-
-Your booking request has been submitted successfully.
-
-A confirmation email will be sent shortly.
-
-</p>
-
-<button
-
-class="btn"
-
-onclick="closeSuccess()">
-
-Go Back
-
-</button>
-
-</div>
+    </div>
 
 </div>
 
@@ -713,6 +693,11 @@ All Rights Reserved.
 </div>
 
 </footer>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919876543210?text=Hello%20Rayyan's%20Luxury%20Stay,%20I%20have%20an%20inquiry%20regarding%20booking." class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
 <!-- ==========================================
 BACK TO TOP BUTTON
 ========================================== -->

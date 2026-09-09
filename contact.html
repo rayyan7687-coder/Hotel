@@ -5,10 +5,12 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Contact Us | Rayyan's Luxury Stay</title>
+<meta name="description" content="Get in touch with Rayyan's Luxury Stay in Hyderabad. 24/7 front desk support, address, phone number, and location map.">
+<meta property="og:title" content="Contact Us | Rayyan's Luxury Stay">
+<meta property="og:description" content="Get in touch with Rayyan's Luxury Stay. We are available 24/7 to assist you.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -30,43 +32,52 @@ href="style.css">
 
 <header>
 
-<div class="container">
+    <div class="container">
 
-<div class="logo">
+        <div class="logo">
+            <a href="index.html">
+                <h2>Rayyan's Luxury Stay</h2>
+                <span>Comfort • Elegance • Luxury</span>
+            </a>
+        </div>
 
-<h2>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
 
-Rayyan's Luxury Stay
+        <nav id="menu">
 
-</h2>
+            <ul>
 
-</div>
+                <li><a href="index.html" class="nav-link">Home</a></li>
 
-<nav>
+                <li><a href="index.html#rooms" class="nav-link">Rooms</a></li>
 
-<ul>
+                <li><a href="index.html#amenities" class="nav-link">Amenities</a></li>
 
-<li><a href="index.html">Home</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
 
-<li><a href="booking.html">Booking</a></li>
+                <li>
+                    <a class="book-btn" href="booking.html">
+                        Book Now
+                    </a>
+                </li>
 
-<li>
+                <li>
 
-<button
-id="darkMode"
-class="dark-btn">
+                    <button id="darkMode" class="dark-btn" aria-label="Toggle dark mode">
 
-<i class="fa-solid fa-moon"></i>
+                        <i class="fa-solid fa-moon"></i>
 
-</button>
+                    </button>
 
-</li>
+                </li>
 
-</ul>
+            </ul>
 
-</nav>
+        </nav>
 
-</div>
+    </div>
 
 </header>
 
@@ -78,90 +89,43 @@ class="dark-btn">
 
 <div class="contact-info">
 
-<h1>
-
-Contact Us
-
-</h1>
+<h1>Get in Touch</h1>
 
 <p>
-
-We're available 24×7 to help you.
-
+Our concierge team is available 24/7 to assist you with room reservations, event bookings, and general inquiries.
 </p>
 
 <div class="info-card">
-
-<i class="fa-solid fa-location-dot"></i>
-
-<div>
-
-<h3>Address</h3>
-
-<p>
-
-123 Sample Street<br>
-
-Hyderabad, Telangana
-
-</p>
-
-</div>
-
+    <i class="fa-solid fa-location-dot"></i>
+    <div>
+        <h3>Hotel Address</h3>
+        <p>123 Luxury Avenue, Jubilee Hills<br>Hyderabad, Telangana 500033, India</p>
+        <a href="https://maps.google.com/?q=Hyderabad" target="_blank" class="directions-link"><i class="fa-solid fa-diamond-turn-right"></i> Get Directions</a>
+    </div>
 </div>
 
 <div class="info-card">
-
-<i class="fa-solid fa-phone"></i>
-
-<div>
-
-<h3>Phone</h3>
-
-<p>
-
-+91 9876543210
-
-</p>
-
-</div>
-
+    <i class="fa-solid fa-phone"></i>
+    <div>
+        <h3>Phone & Reservations</h3>
+        <p>+91 9876543210<br><small class="text-muted">Available 24/7 Concierge Service</small></p>
+    </div>
 </div>
 
 <div class="info-card">
-
-<i class="fa-solid fa-envelope"></i>
-
-<div>
-
-<h3>Email</h3>
-
-<p>
-
-info@rayyansluxurystay.com
-
-</p>
-
-</div>
-
+    <i class="fa-solid fa-envelope"></i>
+    <div>
+        <h3>Email Inquiries</h3>
+        <p>info@rayyansluxurystay.com<br><small class="text-muted">Guaranteed response within 2 hours</small></p>
+    </div>
 </div>
 
 <div class="info-card">
-
-<i class="fa-solid fa-clock"></i>
-
-<div>
-
-<h3>Working Hours</h3>
-
-<p>
-
-Open 24 Hours
-
-</p>
-
-</div>
-
+    <i class="fa-solid fa-clock"></i>
+    <div>
+        <h3>Front Desk Hours</h3>
+        <p>24 Hours / 7 Days a Week<br><small class="text-muted">Standard Check-In: 12:00 PM | Check-Out: 11:00 AM</small></p>
+    </div>
 </div>
 
 </div>
@@ -395,6 +359,14 @@ info@rayyansluxurystay.com
 </div>
 
 </footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919876543210?text=Hello%20Rayyan's%20Luxury%20Stay,%20I%20have%20an%20inquiry%20regarding%20booking." class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- Back to Top -->
+<button id="topBtn" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
 
 <script src="script.js"></script>
 
