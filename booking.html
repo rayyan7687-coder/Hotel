@@ -2,6 +2,19 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (theme === 'dark' || (!theme && prefersDark)) {
+                document.documentElement.classList.add('dark-theme-init');
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.body.classList.add('dark');
+                    document.documentElement.classList.remove('dark-theme-init');
+                });
+            }
+        })();
+    </script>
 
     <meta charset="UTF-8">
 
@@ -554,25 +567,25 @@ Experience luxury, comfort and unforgettable hospitality.
 
 <div class="social-links">
 
-<a href="#">
+<a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Rayyan's Luxury Stay on Facebook">
 
 <i class="fab fa-facebook-f"></i>
 
 </a>
 
-<a href="#">
+<a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Rayyan's Luxury Stay on Instagram">
 
 <i class="fab fa-instagram"></i>
 
 </a>
 
-<a href="#">
+<a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Rayyan's Luxury Stay on Twitter">
 
 <i class="fab fa-x-twitter"></i>
 
 </a>
 
-<a href="#">
+<a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Rayyan's Luxury Stay on LinkedIn">
 
 <i class="fab fa-linkedin-in"></i>
 
@@ -711,30 +724,10 @@ title="Back to Top">
 </button>
 
 <!-- ==========================================
-AOS Library
+AOS Library & Main JavaScript
 ========================================== -->
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-<script>
-
-AOS.init({
-
-duration:1000,
-
-once:true,
-
-offset:100,
-
-easing:"ease-in-out"
-
-});
-
-</script>
-
-<!-- ==========================================
-Main JavaScript
-========================================== -->
 
 <script src="script.js"></script>
 

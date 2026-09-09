@@ -2,6 +2,19 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (theme === 'dark' || (!theme && prefersDark)) {
+                document.documentElement.classList.add('dark-theme-init');
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.body.classList.add('dark');
+                    document.documentElement.classList.remove('dark-theme-init');
+                });
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rayyan's Luxury Stay | Luxury Hotel & Suites in Hyderabad</title>
@@ -12,6 +25,32 @@
     <meta property="og:title" content="Rayyan's Luxury Stay | Luxury Hotel in Hyderabad">
     <meta property="og:description" content="Comfort, elegance, and luxury stay in Hyderabad. Book your stay today with best price guarantee.">
     <meta property="og:type" content="website">
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Rayyan's Luxury Stay",
+      "description": "Experience luxury, comfort, and premium hospitality in Jubilee Hills, Hyderabad.",
+      "url": "https://rayyan7687-coder.github.io/Hotel/",
+      "telephone": "+919876543210",
+      "email": "info@rayyansluxurystay.com",
+      "priceRange": "₹999 - ₹3499",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Luxury Avenue, Jubilee Hills",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "500033",
+        "addressCountry": "IN"
+      },
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      }
+    }
+    </script>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -137,7 +176,7 @@
                 </select>
             </div>
             <div class="qb-btn-container">
-                <button type="submit" class="btn qb-btn"><i class="fa-solid fa-magnifying-glass"></i> Search Availability</button>
+                <button type="submit" class="btn qb-btn"><i class="fa-solid fa-arrow-right-to-bracket"></i> Check Rates & Continue</button>
             </div>
         </form>
     </div>
@@ -145,57 +184,29 @@
 
 <!-- ABOUT -->
 
-<section
-    class="about section">
+<section class="about section">
 
 <div class="container about-grid">
 
-<div
-class="about-text"
-data-aos="fade-right">
+<div class="about-text" data-aos="fade-right">
 
-<h2>
-
-Welcome To Rayyan's Luxury Stay
-
-</h2>
+<h2>Welcome To Rayyan's Luxury Stay</h2>
 
 <p>
-
-Enjoy premium hospitality with elegant interiors,
-comfortable rooms,
-24×7 customer support,
-high-speed Wi-Fi,
-complimentary breakfast,
-and exceptional service.
-
+Enjoy premium hospitality with elegant interiors, spacious executive rooms, 24×7 concierge support, high-speed Wi-Fi, gourmet complimentary breakfast, and exceptional service in Jubilee Hills, Hyderabad.
 </p>
 
 <p>
-
-Whether you are travelling for business or vacation,
-our hotel ensures
-a memorable experience.
-
+Whether you are travelling for corporate business or a luxury vacation, our hotel ensures an unforgettable five-star experience.
 </p>
 
-<a
-href="booking.html"
-class="btn">
-
-Reserve Your Room
-
-</a>
+<a href="booking.html" class="btn">Reserve Your Room</a>
 
 </div>
 
-<div
-class="about-image"
-data-aos="fade-left">
+<div class="about-image" data-aos="fade-left">
 
-<img
-src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1200"
-alt="Hotel Lobby">
+<img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1200" alt="Elegantly designed grand hotel lobby with contemporary lighting">
 
 </div>
 
@@ -833,18 +844,6 @@ id="topBtn">
 <!-- Scripts -->
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-<script>
-
-AOS.init({
-
-duration:1000,
-
-once:true
-
-});
-
-</script>
 
 <script src="script.js"></script>
 

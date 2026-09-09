@@ -17,17 +17,46 @@ function doPost(e) {
 
   try {
 
+    if (!e || !e.postData || !e.postData.contents) {
+      return jsonResponse("error", "Invalid or empty request payload.");
+    }
+
     const data = JSON.parse(e.postData.contents);
 
     if (data.type === "contact") {
-
+      if (!data.name || !data.email || !data.message) {
+        return jsonResponse("error", "Please fill in all required contact fields.");
+      }
       saveContact(data);
-
       sendContactNotification(data);
-
-      return jsonResponse("success", "Message sent.");
-
+      return jsonResponse("success", "Message sent successfully.");
     }
+
+    // Server-side Booking Validation
+    if (!data.name || data.name.length < 3) {
+      return jsonResponse("error", "Please provide a valid name (min 3 characters).");
+    }
+    if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      return jsonResponse("error", "Please provide a valid email address.");
+    }
+    if (!data.phone || !/^[6-9]\d{9}$/.test(data.phone)) {
+      return jsonResponse("error", "Please provide a valid 10-digit phone number.");
+    }
+    if (!data.checkin || !data.checkout) {
+      return jsonResponse("error", "Please select valid check-in and check-out dates.");
+    }
+    if (new Date(data.checkout) <= new Date(data.checkin)) {
+      return jsonResponse("error", "Check-out date must be later than check-in date.");
+    }
+    if (!["Standard Room", "Deluxe Room", "Executive Suite"].includes(data.roomtype)) {
+      return jsonResponse("error", "Please select a valid room type.");
+    }
+
+    // Backend Unique Booking Reference ID Generation
+    const timestamp = new Date().getTime();
+    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+    const refId = "RLS-" + timestamp.toString().slice(-6) + "-" + randomSuffix;
+    data.refId = refId;
 
     saveBooking(data);
 
@@ -35,15 +64,33 @@ function doPost(e) {
 
     sendHotelNotification(data);
 
-    return jsonResponse("success", "Booking received.");
+    return jsonResponse("success", "Booking request received successfully.", refId);
 
   }
 
   catch (err) {
 
-    return jsonResponse("error", err.toString());
+    return jsonResponse("error", "Server processing error: " + err.toString());
 
   }
+
+}
+
+/************************************************
+ * JSON Response Helper
+ ************************************************/
+
+function jsonResponse(status, message, refId) {
+
+  const payload = {
+    status: status,
+    message: message
+  };
+  if (refId) payload.refId = refId;
+
+  return ContentService
+    .createTextOutput(JSON.stringify(payload))
+    .setMimeType(ContentService.MimeType.JSON);
 
 }
 
@@ -87,6 +134,8 @@ function saveBooking(data) {
 
     new Date(),
 
+    data.refId || "N/A",
+
     data.name,
 
     data.email,
@@ -100,6 +149,8 @@ function saveBooking(data) {
     data.guests,
 
     data.roomtype,
+
+    data.totalAmount || "N/A",
 
     data.message
 

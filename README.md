@@ -38,9 +38,11 @@ Dedicated detail pages with rich visual showcases, specifications, amenity lists
 - System theme detection (`prefers-color-scheme`) with `localStorage` persistence across all pages.
 - Full ARIA labels (`aria-label`, `aria-expanded`, `aria-hidden`), focus outline accessibility, and semantic HTML5 elements.
 
-### 📬 Spam Protection & Backend Integration
-- Integrated with Google Apps Script (`Code.gs`) to store bookings in Google Sheets and trigger automated confirmation emails via Gmail API.
-- Client-side honeypot protection, submission cooldown, and date validation.
+### 📬 Backend Validation & Collision-Resistant Reference IDs
+- Server-side validation in `Code.gs` verifies required fields, email formatting, phone numbers, room choices, and date ranges.
+- Collision-resistant unique reference IDs (`RLS-XXXXXX-XXXX`) generated on the backend and returned in JSON payload to client.
+- Stores data in Google Sheets (`Bookings` & `Contact` sheets) and triggers customer & hotel email notifications via Gmail API.
+- Anti-spam honeypot and client-side cooldown timers.
 
 ---
 

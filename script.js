@@ -5,6 +5,33 @@
 
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwWa4vcCYBih7qwV3H6BbaOD4_lPi_swXLFzWzAzHeug_PtH_BwoQ0WcYFx3endIOlq/exec";
 
+const HOTEL_CONFIG = {
+    taxRate: 0.09, // 9% GST
+    rooms: {
+        "Standard Room": {
+            price: 999,
+            maxGuests: 2,
+            bedType: "Queen Size Bed",
+            size: "280 sq.ft",
+            amenities: ["Free High-Speed Wi-Fi", "Complimentary Breakfast", "Smart LED TV", "Digital Safe"]
+        },
+        "Deluxe Room": {
+            price: 1999,
+            maxGuests: 3,
+            bedType: "King Size Bed",
+            size: "420 sq.ft",
+            amenities: ["Free High-Speed Wi-Fi", "Complimentary Breakfast", "55\" 4K Smart TV", "Mini Bar & Espresso"]
+        },
+        "Executive Suite": {
+            price: 3499,
+            maxGuests: 4,
+            bedType: "California King Bed",
+            size: "650 sq.ft",
+            amenities: ["Private Jacuzzi & Steam Shower", "24/7 Dedicated Butler", "Private Dining Set", "Airport VIP Transfer"]
+        }
+    }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     // DOM Elements
     const body = document.body;
@@ -377,13 +404,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     /* Booking Form & Pricing System */
-    const ROOM_RATES = {
-        "Standard Room": 999,
-        "Deluxe Room": 1999,
-        "Executive Suite": 3499
-    };
-    const TAX_RATE = 0.09; // 9% GST
-
     if (bookingForm) {
         const bInputs = {
             name: document.getElementById("name"),
@@ -410,7 +430,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("roomtype") && bInputs.roomtype) {
             const rawRoom = urlParams.get("roomtype");
-            const matchedKey = Object.keys(ROOM_RATES).find(key => key.toLowerCase() === rawRoom.toLowerCase() || rawRoom.toLowerCase().includes(key.toLowerCase()));
+            const matchedKey = Object.keys(HOTEL_CONFIG.rooms).find(key => key.toLowerCase() === rawRoom.toLowerCase() || rawRoom.toLowerCase().includes(key.toLowerCase()));
             if (matchedKey) bInputs.roomtype.value = matchedKey;
         }
         if (urlParams.get("checkin") && bInputs.checkin) bInputs.checkin.value = urlParams.get("checkin");
