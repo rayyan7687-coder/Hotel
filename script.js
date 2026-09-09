@@ -126,9 +126,16 @@ document.addEventListener("DOMContentLoaded", () => {
         let autoSlide;
 
         slides.forEach((_, i) => {
-            const dot = document.createElement("span");
+            const dot = document.createElement("button");
+            dot.type = "button";
             dot.classList.add("dot");
-            if (i === 0) dot.classList.add("active");
+            dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+            if (i === 0) {
+                dot.classList.add("active");
+                dot.setAttribute("aria-current", "true");
+            } else {
+                dot.setAttribute("aria-current", "false");
+            }
             dot.addEventListener("click", () => {
                 index = i;
                 updateSlider();
@@ -141,8 +148,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function updateSlider() {
             slider.style.transform = `translateX(-${index * 100}%)`;
-            dots.forEach(d => d.classList.remove("active"));
-            dots[index].classList.add("active");
+            dots.forEach((d, i) => {
+                const isActive = i === index;
+                d.classList.toggle("active", isActive);
+                d.setAttribute("aria-current", isActive ? "true" : "false");
+            });
         }
 
         function nextSlide() {

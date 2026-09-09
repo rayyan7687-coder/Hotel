@@ -771,6 +771,10 @@ border-radius:50%;
 
 background:#ddd;
 
+border:none;
+
+padding:0;
+
 cursor:pointer;
 
 transition:.3s;
