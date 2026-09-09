@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Book Your Stay | Rayyan's Luxury Stay</title>
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- AOS -->
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+<!-- ==========================
+HEADER
+========================== -->
+
+<header>
+
+    <div class="container">
+
+        <div class="logo">
+
+            <h2>Rayyan's Luxury Stay</h2>
+
+        </div>
+
+        <!-- Mobile Button -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+        <nav id="menu">
+
+            <ul>
+
+                <li>
+
+                    <a href="index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="index.html#rooms">
+
+                        Rooms
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="index.html#amenities">
+
+                        Amenities
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="contact.html">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <button
+                        id="darkMode"
+                        class="dark-btn">
+
+                        <i class="fa-solid fa-moon"></i>
+
+                    </button>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- ==========================
+BOOKING PAGE
+========================== -->
+
+<section class="booking-page">
+
+    <div class="container">
+
+        <div
+            class="booking-card"
+            data-aos="fade-up">
+
+            <h1>
+
+                Book Your Luxury Stay
+
+            </h1>
+
+            <p>
+
+                Fill in the details below and reserve your stay.
+                Our team will confirm your booking via email shortly.
+
+            </p>
+
+            <form
+
+                id="bookingForm"
+
+                class="booking-form"
+
+                autocomplete="off"
+
+                novalidate>
+
+                <!-- Honeypot -->
+
+                <input
+                    type="text"
+                    id="website"
+                    name="website"
+                    style="display:none">
+
+                <!-- Page Load Time -->
+
+                <input
+                    type="hidden"
+                    id="loadTime">
+
+                <div class="form-grid">
+                    <!-- ==========================
+PERSONAL DETAILS
+========================== -->
+
+<div class="form-group">
+
+<label for="name">
+
+Full Name
+
+</label>
+
+<input
+type="text"
+id="name"
+name="name"
+placeholder="Enter your full name"
+required>
+
+<small class="error"></small>
+
+</div>
+
+<div class="form-group">
+
+<label for="email">
+
+Email Address
+
+</label>
+
+<input
+type="email"
+id="email"
+name="email"
+placeholder="example@email.com"
+required>
+
+<small class="error"></small>
+
+</div>
+
+<div class="form-group">
+
+<label for="phone">
+
+Phone Number
+
+</label>
+
+<input
+type="tel"
+id="phone"
+name="phone"
+maxlength="10"
+placeholder="9876543210"
+required>
+
+<small class="error"></small>
+
+</div>
+
+<div class="form-group">
+
+<label for="guests">
+
+Guests
+
+</label>
+
+<select
+id="guests"
+name="guests"
+required>
+
+<option value="">
+
+Select Guests
+
+</option>
+
+<option value="1">
+
+1 Guest
+
+</option>
+
+<option value="2">
+
+2 Guests
+
+</option>
+
+<option value="3">
+
+3 Guests
+
+</option>
+
+<option value="4">
+
+4 Guests
+
+</option>
+
+<option value="5">
+
+5 Guests
+
+</option>
+
+<option value="6">
+
+6 Guests
+
+</option>
+
+<option value="7">
+
+7 Guests
+
+</option>
+
+<option value="8">
+
+8 Guests
+
+</option>
+
+</select>
+
+<small class="error"></small>
+
+</div>
+
+<!-- ==========================
+BOOKING DATES
+========================== -->
+
+<div class="form-group">
+
+<label for="checkin">
+
+Check-in Date
+
+</label>
+
+<input
+type="date"
+id="checkin"
+name="checkin"
+required>
+
+<small class="error"></small>
+
+</div>
+
+<div class="form-group">
+
+<label for="checkout">
+
+Check-out Date
+
+</label>
+
+<input
+type="date"
+id="checkout"
+name="checkout"
+required>
+
+<small class="error"></small>
+
+</div>
+
+<!-- ==========================
+ROOM TYPE
+========================== -->
+
+<div class="form-group full">
+
+<label for="roomtype">
+
+Room Type
+
+</label>
+
+<select
+id="roomtype"
+name="roomtype"
+required>
+
+<option value="">
+
+Select Room Type
+
+</option>
+
+<option value="Standard Room">
+
+Standard Room
+
+</option>
+
+<option value="Deluxe Room">
+
+Deluxe Room
+
+</option>
+
+<option value="Executive Suite">
+
+Executive Suite
+
+</option>
+
+<option value="Family Suite">
+
+Family Suite
+
+</option>
+
+<option value="Presidential Suite">
+
+Presidential Suite
+
+</option>
+
+</select>
+
+<small class="error"></small>
+
+</div>
+
+<!-- ==========================
+SPECIAL REQUESTS
+========================== -->
+
+<div class="form-group full">
+
+<label for="message">
+
+Special Requests
+
+</label>
+
+<textarea
+id="message"
+name="message"
+rows="6"
+placeholder="Mention any special requirements, airport pickup, extra bed, food preferences, etc."></textarea>
+
+</div>
+
+<!-- ==========================
+SUBMIT BUTTON
+========================== -->
+
+<button
+type="submit"
+class="btn"
+id="submitBtn">
+
+<span>
+
+Book Now
+
+</span>
+
+<div
+id="loader"
+class="loader hidden">
+
+</div>
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+<!-- ==========================================
+SUCCESS MODAL
+========================================== -->
+
+<div
+class="modal"
+id="successModal">
+
+<div class="modal-content">
+
+<i class="fa-solid fa-circle-check success-icon"></i>
+
+<h2>
+
+Booking Successful!
+
+</h2>
+
+<p>
+
+Thank you for choosing
+<strong>Rayyan's Luxury Stay</strong>.
+
+<br><br>
+
+Your booking request has been submitted successfully.
+
+A confirmation email will be sent shortly.
+
+</p>
+
+<button
+
+class="btn"
+
+onclick="closeSuccess()">
+
+Go Back
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+ERROR MODAL
+========================================== -->
+
+<div
+class="modal"
+id="errorModal">
+
+<div class="modal-content">
+
+<i class="fa-solid fa-circle-xmark error-icon"></i>
+
+<h2>
+
+Submission Failed
+
+</h2>
+
+<p id="errorText">
+
+Something went wrong.
+
+Please try again later.
+
+</p>
+
+<button
+
+class="btn"
+
+onclick="closeError()">
+
+Close
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+FOOTER
+========================================== -->
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+
+<h3>
+
+Rayyan's Luxury Stay
+
+</h3>
+
+<p>
+
+Experience luxury, comfort and unforgettable hospitality.
+
+</p>
+
+<div class="social-links">
+
+<a href="#">
+
+<i class="fab fa-facebook-f"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fab fa-instagram"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fab fa-x-twitter"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fab fa-linkedin-in"></i>
+
+</a>
+
+</div>
+
+</div>
+
+<div>
+
+<h4>
+
+Quick Links
+
+</h4>
+
+<ul>
+
+<li>
+
+<a href="index.html">
+
+Home
+
+</a>
+
+</li>
+
+<li>
+
+<a href="index.html#rooms">
+
+Rooms
+
+</a>
+
+</li>
+
+<li>
+
+<a href="booking.html">
+
+Booking
+
+</a>
+
+</li>
+
+<li>
+
+<a href="contact.html">
+
+Contact
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>
+
+Contact
+
+</h4>
+
+<p>
+
+<i class="fa-solid fa-location-dot"></i>
+
+Hyderabad, Telangana
+
+</p>
+
+<p>
+
+<i class="fa-solid fa-phone"></i>
+
++91 9876543210
+
+</p>
+
+<p>
+
+<i class="fa-solid fa-envelope"></i>
+
+info@rayyansluxurystay.com
+
+</p>
+
+<p>
+
+<i class="fa-solid fa-clock"></i>
+
+Open 24 × 7
+
+</p>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+<p>
+
+© 2026 Rayyan's Luxury Stay.
+
+All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+<!-- ==========================================
+BACK TO TOP BUTTON
+========================================== -->
+
+<button
+id="topBtn"
+title="Back to Top">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!-- ==========================================
+AOS Library
+========================================== -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+
+duration:1000,
+
+once:true,
+
+offset:100,
+
+easing:"ease-in-out"
+
+});
+
+</script>
+
+<!-- ==========================================
+Main JavaScript
+========================================== -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

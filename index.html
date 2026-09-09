@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayyan's Luxury Stay</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="container">
+
+        <div class="logo">
+            <h2>Rayyan's Luxury Stay</h2>
+            <span>Comfort • Elegance • Luxury</span>
+        </div>
+
+        <nav>
+
+            <ul id="menu">
+
+                <li><a href="#home">Home</a></li>
+
+                <li><a href="#rooms">Rooms</a></li>
+
+                <li><a href="#amenities">Amenities</a></li>
+
+                <li><a href="#gallery">Gallery</a></li>
+
+                <li><a href="#location">Location</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+                <li>
+                    <a class="book-btn"
+                       href="booking.html">
+                        Book Now
+                    </a>
+                </li>
+
+                <li>
+
+                    <button
+                        id="darkMode"
+                        class="dark-btn">
+
+                        <i class="fa-solid fa-moon"></i>
+
+                    </button>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- HERO -->
+
+<section id="home"
+         class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content"
+         data-aos="zoom-in">
+
+        <h1>
+            Experience Luxury Like Never Before
+        </h1>
+
+        <p>
+
+            Spacious Rooms • Rooftop Pool • Premium Dining • Free Wi-Fi
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="booking.html"
+                class="btn">
+
+                Book Your Stay
+
+            </a>
+
+            <a
+                href="#rooms"
+                class="btn-outline">
+
+                Explore Rooms
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section
+    class="about section">
+
+<div class="container about-grid">
+
+<div
+class="about-text"
+data-aos="fade-right">
+
+<h2>
+
+Welcome To Rayyan's Luxury Stay
+
+</h2>
+
+<p>
+
+Enjoy premium hospitality with elegant interiors,
+comfortable rooms,
+24×7 customer support,
+high-speed Wi-Fi,
+complimentary breakfast,
+and exceptional service.
+
+</p>
+
+<p>
+
+Whether you are travelling for business or vacation,
+our hotel ensures
+a memorable experience.
+
+</p>
+
+<a
+href="booking.html"
+class="btn">
+
+Reserve Your Room
+
+</a>
+
+</div>
+
+<div
+class="about-image"
+data-aos="fade-left">
+
+<img
+src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1200"
+alt="Hotel Lobby">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ROOMS -->
+
+<section
+id="rooms"
+class="section">
+
+<div class="container">
+
+<h2
+class="section-title">
+
+Our Premium Rooms
+
+</h2>
+
+<div
+class="slider"
+id="roomSlider">
+
+<div
+class="slides">
+
+<div class="slide">
+<a href="standard-room.html">
+<img
+src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1200"
+alt="Room">
+
+<div class="caption">
+
+<h3>Standard Room</h3>
+
+<p>
+
+Starting ₹999 / Night
+
+</p>
+
+</div>
+</a>
+</div>
+
+<div class="slide">
+<a href="deluxe-room.html">
+<img
+src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&q=80&w=1200"
+alt="Room">
+
+<div class="caption">
+
+<h3>
+
+Deluxe Room
+
+</h3>
+
+<p>
+
+Starting ₹1,999 / Night
+
+</p>
+
+</div>
+</a>
+</div>
+
+<div class="slide">
+<a href="executive-suite.html">
+<img
+src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=1200"
+alt="Room">
+
+<div class="caption">
+
+<h3>
+
+Executive Suite
+
+</h3>
+
+<p>
+
+Starting ₹3,499 / Night
+
+</p>
+
+</div>
+</a>
+</div>
+
+</div>
+
+<button
+class="prev">
+
+❮
+
+</button>
+
+<button
+class="next">
+
+❯
+
+</button>
+
+<div
+class="dots">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- AMENITIES -->
+
+<section
+id="amenities"
+class="section amenities">
+
+<div class="container">
+
+<h2 class="section-title" data-aos="fade-up">
+
+Hotel Amenities
+
+</h2>
+
+<div class="amenities-grid">
+
+<div class="amenity-card" data-aos="zoom-in">
+<i class="fa-solid fa-wifi"></i>
+<h3>Free Wi-Fi</h3>
+<p>High-speed internet throughout the hotel.</p>
+</div>
+
+<div class="amenity-card" data-aos="zoom-in" data-aos-delay="100">
+<i class="fa-solid fa-mug-hot"></i>
+<h3>Breakfast</h3>
+<p>Complimentary breakfast with every stay.</p>
+</div>
+
+<div class="amenity-card" data-aos="zoom-in" data-aos-delay="200">
+<i class="fa-solid fa-person-swimming"></i>
+<h3>Swimming Pool</h3>
+<p>Relax in our luxurious rooftop pool.</p>
+</div>
+
+<div class="amenity-card" data-aos="zoom-in" data-aos-delay="300">
+<i class="fa-solid fa-dumbbell"></i>
+<h3>Fitness Center</h3>
+<p>Modern gym with premium equipment.</p>
+</div>
+
+<div class="amenity-card" data-aos="zoom-in" data-aos-delay="400">
+<i class="fa-solid fa-square-parking"></i>
+<h3>Free Parking</h3>
+<p>Secure parking for all guests.</p>
+</div>
+
+<div class="amenity-card" data-aos="zoom-in" data-aos-delay="500">
+<i class="fa-solid fa-bell-concierge"></i>
+<h3>24×7 Service</h3>
+<p>Always available to assist our guests.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section
+id="gallery"
+class="section">
+
+<div class="container">
+
+<h2
+class="section-title"
+data-aos="fade-up">
+
+Gallery
+
+</h2>
+
+<div
+class="gallery-grid">
+
+<img
+src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600"
+alt="Gallery"
+data-aos="zoom-in">
+
+<img
+src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=600"
+alt="Gallery"
+data-aos="zoom-in"
+data-aos-delay="100">
+
+<img
+src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600"
+alt="Gallery"
+data-aos="zoom-in"
+data-aos-delay="200">
+
+<img
+src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=600"
+alt="Gallery"
+data-aos="zoom-in"
+data-aos-delay="300">
+
+<img
+src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600"
+alt="Gallery"
+data-aos="zoom-in"
+data-aos-delay="400">
+
+<img
+src="https://images.unsplash.com/photo-1560624052-449f5ddf0c31?auto=format&fit=crop&q=80&w=600"
+alt="Gallery"
+data-aos="zoom-in"
+data-aos-delay="500">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LOCATION -->
+
+<section
+id="location"
+class="section">
+
+<div class="container">
+
+<h2
+class="section-title"
+data-aos="fade-up">
+
+Find Us
+
+</h2>
+
+<div
+class="location-grid">
+
+<div
+class="map"
+data-aos="fade-right">
+
+<iframe
+src="https://www.google.com/maps?q=Hyderabad&output=embed"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+
+</div>
+
+<div
+class="location-info"
+data-aos="fade-left">
+
+<h3>Rayyan's Luxury Stay</h3>
+
+<p>
+
+123 Sample Street<br>
+Hyderabad, Telangana<br>
+India
+
+</p>
+
+<p>
+
+<i class="fa-solid fa-phone"></i>
+
++91 9876543210
+
+</p>
+
+<p>
+
+<i class="fa-solid fa-envelope"></i>
+
+info@rayyansluxurystay.com
+
+</p>
+
+<p>
+
+<i class="fa-solid fa-clock"></i>
+
+Open 24 Hours
+
+</p>
+
+<a
+href="booking.html"
+class="btn">
+
+Book Your Stay
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section
+class="section testimonials">
+
+<div class="container">
+
+<h2
+class="section-title"
+data-aos="fade-up">
+
+Guest Reviews
+
+</h2>
+
+<div
+class="testimonial-grid">
+
+<div
+class="testimonial-card"
+data-aos="fade-up">
+
+<h4>★★★★★</h4>
+
+<p>
+
+Amazing hospitality and spacious rooms.
+Highly recommended!
+
+</p>
+
+<strong>
+
+— Mohammed A.
+
+</strong>
+
+</div>
+
+<div
+class="testimonial-card"
+data-aos="fade-up"
+data-aos-delay="150">
+
+<h4>★★★★★</h4>
+
+<p>
+
+Beautiful interiors and excellent customer service.
+
+</p>
+
+<strong>
+
+— Priya S.
+
+</strong>
+
+</div>
+
+<div
+class="testimonial-card"
+data-aos="fade-up"
+data-aos-delay="300">
+
+<h4>★★★★★</h4>
+
+<p>
+
+One of the best luxury hotels for the price.
+
+</p>
+
+<strong>
+
+— Rahul K.
+
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section
+class="cta">
+
+<div
+class="container"
+data-aos="zoom-in">
+
+<h2>
+
+Ready for Your Next Stay?
+
+</h2>
+
+<p>
+
+Reserve your room today and experience unmatched luxury.
+
+</p>
+
+<a
+href="booking.html"
+class="btn">
+
+Book Now
+
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+
+<h3>
+
+Rayyan's Luxury Stay
+
+</h3>
+
+<p>
+
+Luxury • Comfort • Hospitality
+
+</p>
+
+</div>
+
+<div>
+
+<h4>
+
+Quick Links
+
+</h4>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#rooms">Rooms</a></li>
+
+<li><a href="#amenities">Amenities</a></li>
+
+<li><a href="booking.html">Booking</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>
+
+Contact
+
+</h4>
+
+<p>
+
++91 9876543210
+
+</p>
+
+<p>
+
+info@rayyansluxurystay.com
+
+</p>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+<p>
+
+© 2026 Rayyan's Luxury Stay. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+<!-- Back to Top -->
+
+<button
+id="topBtn">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!-- Scripts -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+
+duration:1000,
+
+once:true
+
+});
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
