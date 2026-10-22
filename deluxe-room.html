@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (theme === 'dark' || (!theme && prefersDark)) {
+                document.documentElement.classList.add('dark-theme-init');
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.body.classList.add('dark');
+                    document.documentElement.classList.remove('dark-theme-init');
+                });
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deluxe Room | Rayyan's Luxury Stay</title>
+    <meta name="description" content="Experience spacious comfort in the Deluxe Room at Rayyan's Luxury Stay starting at ₹1,999/night with king size bed, mini bar, and sofa seating.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
@@ -13,69 +27,108 @@
     <header>
         <div class="container">
             <div class="logo">
-                <h2>Rayyan's Luxury Stay</h2>
+                <a href="index.html">
+                    <h2>Rayyan's Luxury Stay</h2>
+                    <span>Comfort • Elegance • Luxury</span>
+                </a>
             </div>
-            <nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav id="menu">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="booking.html">Booking</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><button id="darkMode" class="dark-btn"><i class="fa-solid fa-moon"></i> Dark Mode</button></li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#rooms" class="nav-link">Rooms</a></li>
+                    <li><a href="index.html#amenities" class="nav-link">Amenities</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a class="book-btn" href="booking.html">Book Now</a></li>
+                    <li>
+                        <button id="darkMode" class="dark-btn" aria-label="Toggle dark mode">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="room-details section">
-        <div class="container">
-            <h1 class="section-title" data-aos="fade-up">Deluxe Room</h1>
-            
-            <div class="room-showcase">
-                <div class="showcase-item" data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1590490359683-658d3d23f972?auto=format&fit=crop&q=80&w=800" alt="Deluxe Bedroom">
-                    <div class="showcase-text">
-                        <h3>The Bedroom</h3>
-                        <p>Experience enhanced luxury in our Deluxe Room. Offering more space, a king-sized bed, and premium interior design for a superior stay.</p>
-                        <ul>
-                            <li><i class="fa-solid fa-check"></i> King Size Bed</li>
-                            <li><i class="fa-solid fa-check"></i> 4K Smart TV</li>
-                            <li><i class="fa-solid fa-check"></i> Mini Bar</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="showcase-item reverse" data-aos="fade-left">
-                    <div class="showcase-text">
-                        <h3>Spacious Living Area</h3>
-                        <p>Our Deluxe rooms feature a larger living area with a sofa, perfect for relaxing after a day of sightseeing or business meetings.</p>
-                        <ul>
-                            <li><i class="fa-solid fa-check"></i> Sofa Seating</li>
-                            <li><i class="fa-solid fa-check"></i> Work Desk</li>
-                            <li><i class="fa-solid fa-check"></i> Beautiful Decor</li>
-                        </ul>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" alt="Deluxe Living Area">
-                </div>
-
-                <div class="showcase-item" data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&q=80&w=800" alt="Deluxe Bathroom">
-                    <div class="showcase-text">
-                        <h3>Luxury Bathroom</h3>
-                        <p>The Deluxe bathroom includes high-end fixtures, a spacious shower area, and premium vanity set for your comfort.</p>
-                        <ul>
-                            <li><i class="fa-solid fa-check"></i> Designer Fixtures</li>
-                            <li><i class="fa-solid fa-check"></i> Bathtub Options</li>
-                            <li><i class="fa-solid fa-check"></i> Plush Robes</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-5">
-                <a href="booking.html" class="btn">Book This Room Now</a>
+    <!-- ROOM DETAIL HERO -->
+    <section class="room-hero" style="background-image: url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&q=80&w=1920');">
+        <div class="room-hero-overlay"></div>
+        <div class="container room-hero-content" data-aos="fade-up">
+            <span class="room-type-badge">Starting ₹1,999 / Night</span>
+            <h1>Deluxe Room</h1>
+            <p>Elevated luxury featuring generous living space, plush king-size bed, private mini bar, and stunning panoramic city views.</p>
+            <div class="room-quick-specs">
+                <span><i class="fa-solid fa-user-group"></i> Up to 3 Guests</span>
+                <span><i class="fa-solid fa-bed"></i> King Size Bed</span>
+                <span><i class="fa-solid fa-ruler-combined"></i> 420 sq.ft</span>
+                <span><i class="fa-solid fa-bath"></i> Designer Bath / Shower</span>
             </div>
         </div>
     </section>
+
+    <!-- ROOM DETAILS & SPECS -->
+    <section class="room-details section">
+        <div class="container">
+            <div class="room-detail-grid">
+
+                <!-- Main Info -->
+                <div class="room-detail-main" data-aos="fade-right">
+                    <h2>Room Overview</h2>
+                    <p>Experience superior sophistication in our Deluxe Room. Offering expanded square footage, an inviting sofa lounge area, espresso machine, and floor-to-ceiling city views designed for ultimate relaxation.</p>
+
+                    <h3 class="mt-4 mb-2">Key Amenities Included</h3>
+                    <div class="room-amenities-grid">
+                        <div><i class="fa-solid fa-wifi"></i> High-Speed Free Wi-Fi</div>
+                        <div><i class="fa-solid fa-mug-hot"></i> Gourmet Buffet Breakfast</div>
+                        <div><i class="fa-solid fa-tv"></i> 55" 4K Smart TV</div>
+                        <div><i class="fa-solid fa-wine-glass"></i> Fully Stocked Mini Bar</div>
+                        <div><i class="fa-solid fa-mug-saucer"></i> In-Room Espresso Machine</div>
+                        <div><i class="fa-solid fa-bath"></i> Plush Robes & Slippers</div>
+                    </div>
+
+                    <h3 class="mt-4 mb-2">Hotel Policies & Inclusions</h3>
+                    <ul class="room-policy-list">
+                        <li><strong>Check-In:</strong> 12:00 PM | <strong>Check-Out:</strong> 11:00 AM</li>
+                        <li><strong>Breakfast:</strong> Complimentary full breakfast buffet included.</li>
+                        <li><strong>Cancellation:</strong> Free cancellation up to 24 hours prior to check-in.</li>
+                    </ul>
+
+                    <h3 class="mt-4 mb-3">Room Showcase Gallery</h3>
+                    <div class="room-gallery-grid">
+                        <img src="https://images.unsplash.com/photo-1590490359683-658d3d23f972?auto=format&fit=crop&q=80&w=800" alt="Deluxe Bedroom">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" alt="Deluxe Living Area">
+                        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&q=80&w=800" alt="Deluxe Bathroom">
+                    </div>
+                </div>
+
+                <!-- Reservation Sidebar Card -->
+                <div class="room-reservation-card" data-aos="fade-left">
+                    <div class="reservation-box">
+                        <h3>Reserve Deluxe Room</h3>
+                        <div class="reservation-price">
+                            <span class="price">₹1,999</span>
+                            <span class="unit">/ Night + Tax</span>
+                        </div>
+                        <ul class="reservation-perks">
+                            <li><i class="fa-solid fa-check"></i> Best Price Guarantee</li>
+                            <li><i class="fa-solid fa-check"></i> Free Breakfast Included</li>
+                            <li><i class="fa-solid fa-check"></i> Instant Booking Request</li>
+                        </ul>
+                        <a href="booking.html?roomtype=Deluxe+Room" class="btn w-100">Reserve This Room</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919876543210?text=Hello%20Rayyan's%20Luxury%20Stay,%20I%20have%20an%20inquiry%20regarding%20booking." class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <button id="topBtn" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
 
     <footer>
         <div class="container footer-grid">
@@ -101,7 +154,6 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>AOS.init({ duration: 1000, once: true });</script>
     <script src="script.js"></script>
 </body>
 </html>
